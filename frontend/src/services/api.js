@@ -1,5 +1,5 @@
 import axios from "axios";
-export const api=axios.create({baseURL:import.meta.env.VITE_API_BASE_URL||"http://localhost:8000/api/v1"||""});
+export const api=axios.create({baseURL:import.meta.env.VITE_API_BASE_URL||"https://normex-yyci.onrender.com/api/v1"});
 api.interceptors.request.use(config=>{const token=localStorage.getItem("normex_token");if(token)config.headers.Authorization=`Bearer ${token}`;return config});
 api.interceptors.response.use(r=>r,err=>{if(err.response?.status===401&&location.pathname!=="/login"){localStorage.removeItem("normex_token");localStorage.removeItem("normex_user");location.href="/login"}return Promise.reject(err)});
 export async function login(email,password){const r=(await api.post("/auth/login",{email,password})).data;localStorage.setItem("normex_token",r.access_token);localStorage.setItem("normex_user",JSON.stringify(r.user));return r.user}
