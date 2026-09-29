@@ -1,0 +1,72 @@
+[
+  {
+    "scenario": "LED-STREET-001",
+    "title": "Municipal LED Street Lighting Modernisation",
+    "buyer": "Kolkata Municipal Corporation (synthetic demo buyer)",
+    "location": "West Bengal, India",
+    "estimated_quantity": 1200,
+    "description": "Supply, installation and commissioning of 1,200 outdoor LED road and street luminaires for municipal roads. Minimum approximately 90 W, luminous efficacy at least 90 lm/W, IP66 enclosure, 230 V AC 50 Hz, surge protection, photometric and electrical test evidence, five-year warranty and site acceptance testing.",
+    "expected_domain": "Lighting",
+    "expected_primary_family": [
+      "IS 10322 (Part 1) : 2026",
+      "IS 10322 (Part 5/Sec 3) : 2026",
+      "IS 16107 (Part 2/Sec 1) : 2012",
+      "IS/IEC 60529 : 2001"
+    ],
+    "synthetic": true
+  },
+  {
+    "scenario": "CABLE-001",
+    "title": "11 kV Distribution Cable Procurement",
+    "buyer": "State Electricity Distribution Utility (synthetic demo buyer)",
+    "location": "West Bengal, India",
+    "estimated_quantity": "18 km",
+    "description": "Procurement and installation of power cables for distribution works with defined conductor size, insulation, voltage rating, routine/type test certificates, drum traceability, jointing/termination requirements and commissioning tests. Applicable Indian Standards must be verified against the final cable construction and voltage class.",
+    "expected_domain": "Electrical",
+    "expected_primary_family": [
+      "IS 694 : 2010",
+      "IS 1255 : 1983"
+    ],
+    "synthetic": true
+  },
+  {
+    "scenario": "SOLAR-001",
+    "title": "Rooftop Solar PV for Government Buildings",
+    "buyer": "State Public Works Department (synthetic demo buyer)",
+    "location": "West Bengal, India",
+    "estimated_quantity": "250 kWp",
+    "description": "Grid-connected rooftop solar PV systems for public buildings including PV modules, inverters, mounting structures, DC/AC protection, cabling, earthing, monitoring, installation, commissioning and maintenance. Module qualification and test evidence must be supplied.",
+    "expected_domain": "Solar",
+    "expected_primary_family": [
+      "IS 14286 (Part 2) : 2023",
+      "IS 3043 : 2018"
+    ],
+    "synthetic": true
+  },
+  {
+    "scenario": "STEEL-001",
+    "title": "Structural Steel for Public Building Works",
+    "buyer": "State Public Works Department (synthetic demo buyer)",
+    "location": "West Bengal, India",
+    "estimated_quantity": "180 tonnes",
+    "description": "Supply of hot rolled structural steel sections for public building works with grade, dimensions, mill test certificates, chemical and mechanical properties, inspection, delivery traceability and acceptance testing.",
+    "expected_domain": "Construction",
+    "expected_primary_family": [
+      "IS 2062 : 2011"
+    ],
+    "synthetic": true
+  },
+  {
+    "scenario": "PUMP-001",
+    "title": "Submersible Pump Motor Procurement for Rural Water Supply",
+    "buyer": "Rural Water Supply Division (synthetic demo buyer)",
+    "location": "West Bengal, India",
+    "estimated_quantity": 40,
+    "description": "Supply of line-operated AC motors for submersible pumpsets for rural water-supply installations. Tender requirements include rated voltage, output, efficiency, insulation, enclosure/sealing, performance tests, inspection and commissioning records.",
+    "expected_domain": "Water",
+    "expected_primary_family": [
+      "IS 9283 : 2024"
+    ],
+    "synthetic": true
+  }
+]

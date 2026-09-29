@@ -1,0 +1,18 @@
+REQUEST FOR PROPOSAL — MUNICIPAL LED STREET LIGHTING MODERNISATION
+
+The municipal authority intends to procure 1,200 outdoor LED road and street lighting luminaires for public roads.
+
+Minimum technical requirements:
+- Rated input power approximately 90 W per luminaire.
+- Minimum luminous efficacy of 90 lm/W.
+- Enclosure protection IP66.
+- Surge protection shall be provided.
+- Supply voltage: 230 V AC, 50 Hz.
+- Luminaires shall be suitable for outdoor environmental conditions.
+- Bidder shall provide product technical datasheets, test reports and traceability documents.
+- Installation shall include mounting, electrical termination, aiming and commissioning.
+- Acceptance shall include sample inspection, electrical safety checks, photometric verification and site performance verification.
+- Warranty shall be minimum 5 years.
+
+Standards clause:
+The procuring entity will verify the applicability and current edition of relevant Indian Standards before issuing the final tender. The tender must identify applicable product, safety, performance, ingress-protection and EMC requirements, including the current applicable 2026 revision of the IS 10322 family rather than relying on generic wording.
