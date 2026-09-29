@@ -28,12 +28,19 @@ app = FastAPI(
 
 origins = [x.strip() for x in settings.cors_origins.split(",") if x.strip()]
 app.add_middleware(AuthMiddleware)
+ALLOWED_ORIGINS = [
+    "https://normex.vercel.app",
+    "https://www.normex.vercel.app",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins or ["*","https://normex.vercel.app"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
-    allow_methods=["*","https://normex.vercel.app"],
-    allow_headers=["*","https://normex.vercel.app"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 app.include_router(auth.router, prefix="/api/v1")
