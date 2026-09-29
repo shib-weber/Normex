@@ -30,10 +30,10 @@ origins = [x.strip() for x in settings.cors_origins.split(",") if x.strip()]
 app.add_middleware(AuthMiddleware)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins or ["*"],
+    allow_origins=origins or ["*","https://normex.vercel.app"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*","https://normex.vercel.app"],
+    allow_headers=["*","https://normex.vercel.app"],
 )
 
 app.include_router(auth.router, prefix="/api/v1")
