@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {Page,Card,Stat,Badge} from "../components";
 import {history,demoOverview,procurementOverview,currentUser} from "../services/api";
 import {Activity,Database,ShieldCheck,Network,ArrowUpRight,BriefcaseBusiness,FilePlus2,SearchCheck,Users,ClipboardCheck,Landmark,Factory,Clock3} from "lucide-react";
+import {RevealGroup} from "../components/chrome";
 
 const ROLE_DASH={
  ORGANIZATION_ADMIN:{eyebrow:"ORGANISATION CONTROL",title:"Organisation procurement dashboard",desc:"Create requirements, monitor your tender pipeline and move approved procurements to publication.",actions:["Create tender","/procurement"],metrics:["draft","review","published","bids"]},
@@ -23,7 +24,7 @@ export default function Dashboard(){
  const c=p?.counts||{}; const demo={standards:o?.standards??"—",evidence:o?.evidence??"—",relationships:o?.relationships??"—",gaps:o?.open_gaps??14,events:h.length,published:c.published||0,evaluation:c.evaluation||0,awarded:c.awarded||0,bids:c.bids||0,draft:c.draft||0,review:c.review||0,submitted:0};
  return <Page eyebrow={cfg.eyebrow} title={cfg.title} description={cfg.desc} actions={<Link className="primary" to={cfg.actions[1]}>{cfg.actions[0]}</Link>}>
    <div className="synthetic-banner"><Database size={16}/><b>Role-scoped synthetic workspace</b><span>{user?.organization||"NORMEX Demo Authority"} · {user?.role?.replaceAll("_"," ")}</span></div>
-   <div className="statgrid">{cfg.metrics.map(k=><Stat key={k} label={LABELS[k]||k} value={demo[k]??0} sub={metricSub(k,user?.role)}/>)}</div>
+   <RevealGroup className="statgrid" stagger={55}>{cfg.metrics.map(k=><Stat key={k} label={LABELS[k]||k} value={demo[k]??0} sub={metricSub(k,user?.role)}/>)}</RevealGroup>
    <RoleActions role={user?.role}/>
    <div className="two-col" style={{marginTop:18}}><Card><div className="row between"><h2>Procurement lifecycle</h2><Link className="textlink" to="/procurement">Open hub <ArrowUpRight size={13}/></Link></div><Lifecycle role={user?.role} counts={c}/></Card><Card><h2>Workspace focus</h2><Focus role={user?.role}/></Card></div>
    {!["VENDOR","AUDITOR"].includes(user?.role)&&<div className="two-col" style={{marginTop:18}}><Card><div className="row between"><h2>Recent analyses</h2><Link className="textlink" to="/history">View history <ArrowUpRight size={13}/></Link></div>{h.length?h.slice(0,5).map(x=><div className="listrow" key={x.id}><div><b>{x.product||"Procurement case"}</b><small>{x.domain||"General"} · {new Date(x.created_at).toLocaleString()}</small></div><Badge tone="good">SAVED</Badge></div>):<div className="empty">No analyses yet.</div>}</Card><RiskCard role={user?.role}/></div>}
