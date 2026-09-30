@@ -1,1 +1,67 @@
-<div id="root"></div><script type="module" src="/src/main.jsx"></script>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <title>NORMEX · Procurement &amp; Standards Intelligence</title>
+    <meta
+      name="description"
+      content="NORMEX turns procurement requirements into traceable standards intelligence: hybrid standards retrieval, version checks, knowledge-graph expansion and evidence-backed compliance review."
+    />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="NORMEX · Procurement &amp; Standards Intelligence" />
+    <meta
+      property="og:description"
+      content="Turn procurement requirements into traceable standards intelligence."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      />
+    </noscript>
+
+    <!-- Poster for the hero background video: tiny, preloaded, and paints before the video decodes. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/normex-poster.jpg"
+      fetchpriority="high"
+    />
+
+    <style>
+      /* Painted before the CSS bundle so there is never a flash (CLS/LCP). */
+      html {
+        background: #ffffff;
+      }
+      #root:empty::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          radial-gradient(60rem 40rem at 18% -8%, rgba(79, 70, 229, 0.07), transparent 60%),
+          radial-gradient(48rem 34rem at 92% 8%, rgba(8, 145, 178, 0.055), transparent 60%),
+          #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

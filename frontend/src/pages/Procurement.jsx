@@ -2,6 +2,7 @@ import React,{useEffect,useMemo,useState} from "react";
 import {Page,Card,Badge} from "../components";
 import {procurementOverview,createTender,complianceReview,publishTender,submitBid,closeBidding,evaluateSubmission,awardTender,currentUser,procurementAudit} from "../services/api";
 import {Workflow,Plus,Send,ClipboardCheck,Building2,ShieldCheck,History,ChevronRight,LockKeyhole,SearchCheck,Flag,CheckCircle2} from "lucide-react";
+import {RevealGroup} from "../components/chrome";
 
 const ROLE_COPY={
  ORGANIZATION_ADMIN:"Own your organisation's procurement pipeline, review approved tenders and publish them to the supplier marketplace.",
@@ -46,9 +47,9 @@ export default function Procurement(){
  const visibleTenders=useMemo(()=>data?.tenders||[],[data]);
  return <Page eyebrow="END-TO-END PROCUREMENT" title="Procurement Hub" description={ROLE_COPY[user?.role]||"Controlled procurement workflow with standards intelligence, compliance gates and auditability."}>
    <div className="workflow-strip">{(data?.workflow||[]).map((x,i)=><div key={x}><span>{String(i+1).padStart(2,"0")}</span>{x}{i<data.workflow.length-1&&<ChevronRight size={13}/>}</div>)}</div>
-   <div className="statgrid" style={{marginTop:18}}>
+   <RevealGroup className="statgrid mt-18" stagger={55}>
     <MiniStat label="Drafts" value={counts.draft||0}/><MiniStat label="In review" value={counts.review||0}/><MiniStat label="Published" value={counts.published||0}/><MiniStat label="Bids" value={counts.bids||0}/>
-   </div>
+   </RevealGroup>
    {error&&<div className="auth-error" style={{marginTop:18}}>{error}</div>}
 
    {canCreate(user?.role)&&<div className="two-col" style={{marginTop:18}}>
@@ -68,9 +69,9 @@ export default function Procurement(){
 
    <div className="section-mini" style={{marginTop:30}}><div><div className="eyebrow">LIVE PROCUREMENT CASES</div><h2 style={{margin:0}}>{user?.role==="VENDOR"?"Open tenders":"Tender pipeline"}</h2></div><Badge>{visibleTenders.length} cases</Badge></div>
    {!visibleTenders.length&&<Card style={{marginTop:14}}><div className="empty">No cases are available for this role yet.</div></Card>}
-   <div className="tender-grid">
+   <RevealGroup className="tender-grid" stagger={70}>
     {visibleTenders.map(t=><TenderCard key={t.id} t={t} user={user} bid={bid} setBid={setBid} review={review} setReview={setReview} busy={busy} onReview={reviewTender} onPublish={publish} onClose={close} onBid={bidSubmit} onEvaluate={evaluate} onAward={award} canReview={canReview(user?.role)} canPublish={canPublish(user?.role)} canEvaluate={canEvaluate(user?.role)}/>) }
-   </div>
+   </RevealGroup>
    {(user?.role==="AUDITOR"||user?.role==="ADMIN")&&<Audit/>}
  </Page>
 }
